@@ -16,12 +16,15 @@ e
 
 Explanation:
 'e' is the letter that was added.
-"""
+
 # M1:
 # transfer chars to ascii code
 # get sum of all chars of s and t, the difference between sums is the extra char
 # transfer difference to char
 # ord("a") -> 65 chr(65) -> "a" by ASCII
+M2:
+use xor
+"""
 class Solution(object):
     def findTheDifference(self, s, t):
         """
