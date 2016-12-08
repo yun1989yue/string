@@ -1,0 +1,34 @@
+Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.
+
+Each letter in the magazine string can only be used once in your ransom note.
+
+Note:
+You may assume that both strings contain only lowercase letters.
+
+canConstruct("a", "b") -> false
+canConstruct("aa", "ab") -> false
+canConstruct("aa", "aab") -> true
+
+"""
+time: O(m+n)
+space:O(1)
+Method:
+Notice that the number of letters is small, we can use a small list to record the number of appearance of each letter in ransomNote and 
+magazine
+"""
+class Solution(object):
+    def canConstruct(self, ransomNote, magazine):
+        """
+        :type ransomNote: str
+        :type magazine: str
+        :rtype: bool
+        """
+        note = [0 for i in xrange(100)]
+        for letter in ransomNote:
+            note[ord(letter)-65] -= 1
+        for letter in magazine:
+            note[ord(letter)-65] += 1
+        for count in note:
+            if count < 0:
+                return False
+        return True
